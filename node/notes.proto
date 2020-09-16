@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service NoteService {
+    rpc SayHello (NameRequest) returns (NameReply) {}
+    rpc List (Empty) returns (NoteList) {}
+}
+
+message Empty {}
+
+message Note {
+   string id = 1;
+   string title = 2;
+   string content = 3;
+}
+
+message NoteList {
+    repeated Note notes = 1;
+}
+
+message NameRequest {
+    string name = 1;
+}
+
+message NameReply {
+    string message = 1;
+}
